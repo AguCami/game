@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Game Mode API (Android 12+): declara cómo responde el juego a los modos
+  del sistema. En BATTERY mode permitimos downscale de resolución y el
+  juego baja su FPS objetivo (ver PerformanceManager.gd).
+-->
+<game-mode-config
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:supportsBatteryGameMode="true"
+    android:supportsPerformanceGameMode="true"
+    android:allowGameDownscaling="true"
+    android:allowGameFpsOverride="true" />
