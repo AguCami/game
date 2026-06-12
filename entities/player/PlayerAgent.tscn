@@ -51,7 +51,7 @@ scale = Vector2(2.6, 2.6)
 texture = ExtResource("t_shadow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3.4, 3.4)
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("frames_player")
 animation = &"idle"
 
@@ -73,7 +73,7 @@ physics_material_override = SubResource("ball_mat")
 linear_damp = 1.5
 
 [node name="BallSprite" type="Sprite2D" parent="BallController/BallBody"]
-scale = Vector2(2.6, 2.6)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("t_ball")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallController/BallBody"]
