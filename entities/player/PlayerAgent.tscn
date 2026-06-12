@@ -1,37 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://player_agent"]
+[gd_scene load_steps=15 format=3 uid="uid://player_agent"]
 
 [ext_resource type="Script" path="res://entities/player/PlayerAgent.gd" id="1"]
 [ext_resource type="Script" path="res://entities/player/BallController.gd" id="2"]
-
-[sub_resource type="PlaceholderTexture2D" id="tex_player"]
-size = Vector2(48, 48)
-
-[sub_resource type="PlaceholderTexture2D" id="tex_ball"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" path="res://assets/sprites/player_idle_0.png" id="t_i0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_idle_1.png" id="t_i1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_run_0.png" id="t_r0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_run_1.png" id="t_r1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_run_2.png" id="t_r2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_run_3.png" id="t_r3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_gambeta_0.png" id="t_g0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player_gambeta_1.png" id="t_g1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ball.png" id="t_ball"]
 
 [sub_resource type="SpriteFrames" id="frames_player"]
 animations = [{
-"frames": [{"duration": 1.0, "texture": SubResource("tex_player")}],
+"frames": [{"duration": 1.0, "texture": ExtResource("t_i0")}, {"duration": 1.0, "texture": ExtResource("t_i1")}],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
-"frames": [{"duration": 1.0, "texture": SubResource("tex_player")}],
+"frames": [{"duration": 1.0, "texture": ExtResource("t_r0")}, {"duration": 1.0, "texture": ExtResource("t_r1")}, {"duration": 1.0, "texture": ExtResource("t_r2")}, {"duration": 1.0, "texture": ExtResource("t_r3")}],
 "loop": true,
 "name": &"run",
 "speed": 10.0
 }, {
-"frames": [{"duration": 1.0, "texture": SubResource("tex_player")}],
-"loop": false,
+"frames": [{"duration": 1.0, "texture": ExtResource("t_g0")}, {"duration": 1.0, "texture": ExtResource("t_g1")}],
+"loop": true,
 "name": &"gambeta",
-"speed": 12.0
+"speed": 14.0
 }]
 
 [sub_resource type="CircleShape2D" id="shape_player"]
 radius = 22.0
 
 [sub_resource type="CircleShape2D" id="shape_ball"]
-radius = 10.0
+radius = 12.0
 
 [sub_resource type="PhysicsMaterial" id="ball_mat"]
 bounce = 0.5
@@ -42,6 +45,7 @@ collision_mask = 5
 script = ExtResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.4, 3.4)
 sprite_frames = SubResource("frames_player")
 animation = &"idle"
 
@@ -63,7 +67,8 @@ physics_material_override = SubResource("ball_mat")
 linear_damp = 1.5
 
 [node name="BallSprite" type="Sprite2D" parent="BallController/BallBody"]
-texture = SubResource("tex_ball")
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("t_ball")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallController/BallBody"]
 shape = SubResource("shape_ball")

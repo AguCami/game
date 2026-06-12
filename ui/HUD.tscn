@@ -2,15 +2,9 @@
 
 [ext_resource type="Script" path="res://ui/HUD.gd" id="1"]
 [ext_resource type="Script" path="res://ui/VirtualJoystick.gd" id="2"]
-
-[sub_resource type="PlaceholderTexture2D" id="tex_arrow"]
-size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="tex_base"]
-size = Vector2(220, 220)
-
-[sub_resource type="PlaceholderTexture2D" id="tex_knob"]
-size = Vector2(90, 90)
+[ext_resource type="Texture2D" path="res://assets/sprites/arrow.png" id="t_arrow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stick_base.png" id="t_base"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stick_knob.png" id="t_knob"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 5
@@ -20,9 +14,9 @@ script = ExtResource("1")
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 40.0
-offset_top = 30.0
+offset_top = 40.0
 offset_right = -40.0
-offset_bottom = 62.0
+offset_bottom = 76.0
 grow_horizontal = 2
 max_value = 20.0
 show_percentage = false
@@ -31,31 +25,34 @@ show_percentage = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -16.0
-offset_bottom = 16.0
+offset_left = 12.0
+offset_top = -18.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 26
 text = "Nv. 1"
 
 [node name="GoalArrow" type="TextureRect" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -32.0
-offset_top = 100.0
-offset_right = 32.0
-offset_bottom = 164.0
+offset_left = -40.0
+offset_top = 110.0
+offset_right = 40.0
+offset_bottom = 190.0
 grow_horizontal = 2
-pivot_offset = Vector2(32, 32)
-texture = SubResource("tex_arrow")
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("t_arrow")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SkillSlots" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -500.0
-offset_top = 80.0
+offset_top = 90.0
 offset_right = -40.0
-offset_bottom = 160.0
+offset_bottom = 170.0
 grow_horizontal = 0
 alignment = 2
 
@@ -63,52 +60,57 @@ alignment = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_top = 180.0
-offset_right = 250.0
-offset_bottom = 220.0
+offset_left = -300.0
+offset_top = 200.0
+offset_right = 300.0
+offset_bottom = 244.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 
 [node name="EventoLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -300.0
-offset_top = 230.0
-offset_right = 300.0
-offset_bottom = 270.0
+offset_left = -350.0
+offset_top = 250.0
+offset_right = 350.0
+offset_bottom = 294.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="StickIzquierdo" type="Control" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -700.0
-offset_right = 540.0
+offset_top = -560.0
+offset_right = 520.0
 grow_vertical = 0
+mouse_filter = 2
 script = ExtResource("2")
 tipo = 0
 
 [node name="Base" type="TextureRect" parent="StickIzquierdo"]
-modulate = Color(1, 1, 1, 0.35)
-offset_left = 100.0
-offset_top = 380.0
-offset_right = 320.0
-offset_bottom = 600.0
-texture = SubResource("tex_base")
+offset_left = 110.0
+offset_top = 160.0
+offset_right = 390.0
+offset_bottom = 440.0
+mouse_filter = 2
+texture = ExtResource("t_base")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Knob" type="TextureRect" parent="StickIzquierdo/Base"]
-modulate = Color(1, 1, 1, 0.6)
-offset_left = 65.0
-offset_top = 65.0
-offset_right = 155.0
-offset_bottom = 155.0
-texture = SubResource("tex_knob")
+offset_left = 90.0
+offset_top = 90.0
+offset_right = 190.0
+offset_bottom = 190.0
+mouse_filter = 2
+texture = ExtResource("t_knob")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="StickDerecho" type="Control" parent="."]
 anchors_preset = 3
@@ -116,25 +118,32 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -540.0
-offset_top = -700.0
+offset_left = -520.0
+offset_top = -560.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 script = ExtResource("2")
 tipo = 1
 
 [node name="Base" type="TextureRect" parent="StickDerecho"]
-modulate = Color(1, 0.6, 0.6, 0.35)
-offset_left = 220.0
-offset_top = 380.0
-offset_right = 440.0
-offset_bottom = 600.0
-texture = SubResource("tex_base")
+modulate = Color(1, 0.75, 0.75, 1)
+offset_left = 130.0
+offset_top = 160.0
+offset_right = 410.0
+offset_bottom = 440.0
+mouse_filter = 2
+texture = ExtResource("t_base")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Knob" type="TextureRect" parent="StickDerecho/Base"]
-modulate = Color(1, 0.6, 0.6, 0.6)
-offset_left = 65.0
-offset_top = 65.0
-offset_right = 155.0
-offset_bottom = 155.0
-texture = SubResource("tex_knob")
+modulate = Color(1, 0.75, 0.75, 1)
+offset_left = 90.0
+offset_top = 90.0
+offset_right = 190.0
+offset_bottom = 190.0
+mouse_filter = 2
+texture = ExtResource("t_knob")
+expand_mode = 1
+stretch_mode = 5

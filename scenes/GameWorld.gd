@@ -29,4 +29,4 @@ func _on_partida_terminada(victoria: bool) -> void:
 	print("Partida terminada. Victoria: %s" % victoria)
 	await get_tree().create_timer(3.0).timeout
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
