@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://game_world"]
+
+[ext_resource type="Script" path="res://scenes/GameWorld.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://player_agent" path="res://entities/player/PlayerAgent.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://enemy_ai" path="res://entities/enemy/EnemyAI.tscn" id="3"]
+[ext_resource type="Script" path="res://entities/wave/WaveGenerator.gd" id="4"]
+[ext_resource type="Script" path="res://mechanics/ShootingSystem.gd" id="5"]
+[ext_resource type="Script" path="res://mechanics/MatchEvents.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://hud_main" path="res://ui/HUD.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://upgrade_menu" path="res://upgrades/UpgradeMenu.tscn" id="8"]
+
+[sub_resource type="NavigationPolygon" id="nav_poly"]
+vertices = PackedVector2Array(-1500, -2200, 1500, -2200, 1500, 1500, -1500, 1500)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+
+[sub_resource type="RectangleShape2D" id="shape_goal"]
+size = Vector2(600, 80)
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Cancha" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -1500.0
+offset_top = -2200.0
+offset_right = 1500.0
+offset_bottom = 1500.0
+color = Color(0.18, 0.45, 0.2, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("nav_poly")
+
+[node name="PlayerAgent" parent="." instance=ExtResource("2")]
+position = Vector2(0, 800)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerAgent"]
+zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true
+
+[node name="GoalArea" type="Area2D" parent="."]
+position = Vector2(0, -2000)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+shape = SubResource("shape_goal")
+
+[node name="GoalVisual" type="ColorRect" parent="GoalArea"]
+offset_left = -300.0
+offset_top = -40.0
+offset_right = 300.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0.8)
+
+[node name="WaveGenerator" type="Node" parent="."]
+script = ExtResource("4")
+enemy_scene = ExtResource("3")
+spawn_area = Rect2(-1200, -1800, 2400, 2400)
+
+[node name="ShootingSystem" type="Node2D" parent="."]
+script = ExtResource("5")
+goal_target_path = NodePath("../GoalArea")
+
+[node name="MatchEvents" type="Node" parent="."]
+script = ExtResource("6")
+
+[node name="HUD" parent="." instance=ExtResource("7")]
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("8")]

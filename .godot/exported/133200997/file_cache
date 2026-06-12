@@ -1,0 +1,6 @@
+res://entities/enemy/EnemyAI.tscn::ebbf7391d67fec8a70bd574fc4525d06::1781269347::res://.godot/exported/133200997/export-c9471a402f5c5492f523018c9b52d554-EnemyAI.scn
+res://entities/player/PlayerAgent.tscn::c5daeeb4d607a03143a0aa15d795e13d::1781269274::res://.godot/exported/133200997/export-f8a263487118d4e70b9b5fe380d2baa5-PlayerAgent.scn
+res://scenes/GameWorld.tscn::5b50676bd48c751015defa8fcb88fe89::1781269363::res://.godot/exported/133200997/export-942e2290fc1759f5185cc1cf0b22bc4f-GameWorld.scn
+res://scenes/Main.tscn::c7cd45a0c19cbbd0059a15968cca45e8::1781269371::res://.godot/exported/133200997/export-4a24720ee5e787dbe30abc634fa3679d-Main.scn
+res://ui/HUD.tscn::55c28d4ab60f8729e237162bc5f2639d::1781269313::res://.godot/exported/133200997/export-43cecdbfecef3f5ceed0b48faeb7000e-HUD.scn
+res://upgrades/UpgradeMenu.tscn::d400417e18583efd10c341ba1ffd6e89::1781269292::res://.godot/exported/133200997/export-b52d3d9ea084ec03ebd0b646a6f10775-UpgradeMenu.scn

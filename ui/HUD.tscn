@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://hud_main"]
+
+[ext_resource type="Script" path="res://ui/HUD.gd" id="1"]
+[ext_resource type="Script" path="res://ui/VirtualJoystick.gd" id="2"]
+
+[sub_resource type="PlaceholderTexture2D" id="tex_arrow"]
+size = Vector2(64, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="tex_base"]
+size = Vector2(220, 220)
+
+[sub_resource type="PlaceholderTexture2D" id="tex_knob"]
+size = Vector2(90, 90)
+
+[node name="HUD" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1")
+
+[node name="XPBar" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = 62.0
+grow_horizontal = 2
+max_value = 20.0
+show_percentage = false
+
+[node name="NivelLabel" type="Label" parent="XPBar"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -16.0
+offset_bottom = 16.0
+text = "Nv. 1"
+
+[node name="GoalArrow" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 100.0
+offset_right = 32.0
+offset_bottom = 164.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = SubResource("tex_arrow")
+
+[node name="SkillSlots" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_top = 80.0
+offset_right = -40.0
+offset_bottom = 160.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="OleadaLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 180.0
+offset_right = 250.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="EventoLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 230.0
+offset_right = 300.0
+offset_bottom = 270.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="StickIzquierdo" type="Control" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -700.0
+offset_right = 540.0
+grow_vertical = 0
+script = ExtResource("2")
+tipo = 0
+
+[node name="Base" type="TextureRect" parent="StickIzquierdo"]
+modulate = Color(1, 1, 1, 0.35)
+offset_left = 100.0
+offset_top = 380.0
+offset_right = 320.0
+offset_bottom = 600.0
+texture = SubResource("tex_base")
+
+[node name="Knob" type="TextureRect" parent="StickIzquierdo/Base"]
+modulate = Color(1, 1, 1, 0.6)
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 155.0
+offset_bottom = 155.0
+texture = SubResource("tex_knob")
+
+[node name="StickDerecho" type="Control" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -700.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2")
+tipo = 1
+
+[node name="Base" type="TextureRect" parent="StickDerecho"]
+modulate = Color(1, 0.6, 0.6, 0.35)
+offset_left = 220.0
+offset_top = 380.0
+offset_right = 440.0
+offset_bottom = 600.0
+texture = SubResource("tex_base")
+
+[node name="Knob" type="TextureRect" parent="StickDerecho/Base"]
+modulate = Color(1, 0.6, 0.6, 0.6)
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 155.0
+offset_bottom = 155.0
+texture = SubResource("tex_knob")

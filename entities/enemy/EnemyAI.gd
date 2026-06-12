@@ -92,6 +92,9 @@ func _on_tackle_area_body_entered(body: Node) -> void:
 	if body is PlayerAgent:
 		body.recibir_tackle(stats["fuerza"])
 		tackle_realizado.emit(self)
+	elif body is RigidBody2D and body.linear_velocity.length() > 400.0:
+		# Balonazo a alta velocidad: el defensa queda eliminado
+		ser_eliminado()
 
 
 # ── Recibir daño / ser eliminado ──────────────────────────────────────────

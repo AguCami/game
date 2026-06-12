@@ -25,8 +25,8 @@ renderer/rendering_method="mobile"
 textures/canvas_textures/default_texture_filter=0
 
 [autoload]
-GameManager="*res://autoloads/GameManager.gd"
 SaveSystem="*res://autoloads/SaveSystem.gd"
+GameManager="*res://autoloads/GameManager.gd"
 PerformanceManager="*res://autoloads/PerformanceManager.gd"
 
 [input]

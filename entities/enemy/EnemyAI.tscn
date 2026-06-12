@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://enemy_ai"]
+
+[ext_resource type="Script" path="res://entities/enemy/EnemyAI.gd" id="1"]
+
+[sub_resource type="PlaceholderTexture2D" id="tex_enemy"]
+size = Vector2(48, 48)
+
+[sub_resource type="SpriteFrames" id="frames_enemy"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("tex_enemy")}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("tex_enemy")}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="shape_enemy"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="shape_tackle"]
+radius = 28.0
+
+[node name="EnemyAI" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.4, 0.4, 1)
+sprite_frames = SubResource("frames_enemy")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("shape_enemy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="TackleArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TackleArea"]
+shape = SubResource("shape_tackle")
