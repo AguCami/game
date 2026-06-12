@@ -28,10 +28,12 @@ const AI_TICK: float = 0.05   # actualiza ruta cada 50 ms (~20 Hz)
 
 # ── Señales ────────────────────────────────────────────────────────────────
 signal enemy_defeated
+signal tackle_realizado(enemigo: EnemyAI)   # escuchado por MatchEvents (RedCardCheck)
 
 
 # ──────────────────────────────────────────────────────────────────────────
 func _ready() -> void:
+	add_to_group("enemies")
 	tackle_area.body_entered.connect(_on_tackle_area_body_entered)
 	nav_agent.path_desired_distance    = 8.0
 	nav_agent.target_desired_distance  = 16.0
@@ -89,6 +91,7 @@ func _move_along_path(delta: float) -> void:
 func _on_tackle_area_body_entered(body: Node) -> void:
 	if body is PlayerAgent:
 		body.recibir_tackle(stats["fuerza"])
+		tackle_realizado.emit(self)
 
 
 # ── Recibir daño / ser eliminado ──────────────────────────────────────────
