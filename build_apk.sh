@@ -5,7 +5,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-TPL="/root/.local/share/godot/export_templates/4.2.2.stable/android_release.apk"
+TPL="/root/.local/share/godot/export_templates/4.2.2.stable/android_debug.apk"
 KEYSTORE="/opt/debug.keystore"
 WORK="/tmp/fs_build"
 OUT="$ROOT/build/futbol-survivor.apk"
