@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://main_menu"]
 
 [ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/sprites/grass.png" id="t_grass"]
+[ext_resource type="Texture2D" path="res://assets/sprites/menu_bg.png" id="t_bg"]
 [ext_resource type="Texture2D" path="res://assets/sprites/ball.png" id="t_ball"]
 
 [node name="MainMenu" type="Control"]
@@ -20,18 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("t_grass")
+texture = ExtResource("t_bg")
 expand_mode = 1
-stretch_mode = 1
-
-[node name="Oscurecer" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.35)
+stretch_mode = 6
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -50,7 +41,7 @@ theme_override_constants/separation = 40
 alignment = 1
 
 [node name="BallIcon" type="TextureRect" parent="VBox"]
-custom_minimum_size = Vector2(160, 160)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("t_ball")
@@ -59,6 +50,7 @@ stretch_mode = 5
 
 [node name="Titulo" type="Label" parent="VBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.88, 1.0, 1)
 theme_override_font_sizes/font_size = 84
 text = "FÚTBOL
 SURVIVOR"
@@ -78,18 +70,21 @@ alignment = 1
 
 [node name="MonedasLabel" type="Label" parent="VBox/StatsBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
 theme_override_font_sizes/font_size = 30
 text = "0 monedas"
 horizontal_alignment = 1
 
 [node name="CarreraLabel" type="Label" parent="VBox/StatsBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.9, 1.0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Nivel de carrera: 1"
 horizontal_alignment = 1
 
 [node name="RecordLabel" type="Label" parent="VBox/StatsBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.8, 1)
 theme_override_font_sizes/font_size = 26
 text = "Partidas: 0   Victorias: 0"
 horizontal_alignment = 1
@@ -98,5 +93,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(420, 130)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.1, 0.05, 0.0, 1)
 theme_override_font_sizes/font_size = 48
-text = "⚽  JUGAR"
+text = "  JUGAR"
