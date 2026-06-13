@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1781316294
+::res://::1781316808
 export_presets.cfg::TextFile::-1::1781269496::0::1::::<><>::
 icon.svg::CompressedTexture2D::7909497542712755739::1781269377::1781269481::1::::<><>::
 ::res://android/::1781269122
@@ -48,7 +48,7 @@ vignette.png::CompressedTexture2D::1054414655438445623::1781280771::1781280831::
 GameManager.gd::GDScript::-1::1781268428::0::1::::<>Node<>::
 PerformanceManager.gd::GDScript::-1::1781269140::0::1::::<>Node<>::
 SaveSystem.gd::GDScript::-1::1781268617::0::1::::<>Node<>::
-::res://build/::1781280988
+::res://build/::1781316332
 ::res://entities/::1781268180
 ::res://entities/enemy/::1781281849
 EnemyAI.gd::GDScript::-1::1781269337::0::1::::EnemyAI<>CharacterBody2D<>::
